@@ -50,8 +50,6 @@ void ADoorScript::OpenDoor(AHalfLifeExperimentCharacter* character)
 	}
 }
 
-
-
 void ADoorScript::RotateTheDoor()
 {
 	FQuat quatRotation = FQuat(FRotator(0, 10, 0));

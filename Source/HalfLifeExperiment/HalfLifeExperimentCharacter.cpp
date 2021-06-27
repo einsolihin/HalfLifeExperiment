@@ -112,16 +112,6 @@ void AHalfLifeExperimentCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	PhysicsHandle->SetTargetLocation(FP_ObjectCapture->GetComponentLocation());
-
-	/*FVector Start = GetCapsuleComponent()->GetComponentLocation();
-	FVector End = (GetCapsuleComponent()->GetUpVector() * -5) + GetCapsuleComponent()->GetComponentLocation();
-
-	FHitResult hit;
-	FCollisionQueryParams TraceParams;
-
-	GetWorld()->LineTraceSingleByChannel(hit, Start, End, ECC_Visibility, TraceParams);*/
-
-	
 }
 
 
@@ -335,9 +325,7 @@ int AHalfLifeExperimentCharacter::getPoint()
 }
 
 void AHalfLifeExperimentCharacter::OnInteract()
-{
-	//TheObject.GetComponent()->AddImpulse(FirstPersonCameraComponent->GetForwardVector() * FireForce, "", true);
-	
+{	
 	FVector Start = FirstPersonCameraComponent->GetComponentLocation();
 	FVector End = (FirstPersonCameraComponent->GetForwardVector() * InteractRange)+ FirstPersonCameraComponent->GetComponentLocation();
 
@@ -352,7 +340,6 @@ void AHalfLifeExperimentCharacter::OnInteract()
 		if (Cast<ADoorScript>(hit.Actor) != NULL)
 		{
 			ADoorScript* door = Cast<ADoorScript>(hit.Actor);
-
 			door->OpenDoor(this);
 		}
 	}
